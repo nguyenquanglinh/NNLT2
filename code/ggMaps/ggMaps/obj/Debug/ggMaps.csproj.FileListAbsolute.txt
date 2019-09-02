@@ -1,0 +1,12 @@
+E:\NNLT2\code\ggMaps\ggMaps\bin\Debug\ggMaps.exe.config
+E:\NNLT2\code\ggMaps\ggMaps\bin\Debug\ggMaps.exe
+E:\NNLT2\code\ggMaps\ggMaps\bin\Debug\ggMaps.pdb
+E:\NNLT2\code\ggMaps\ggMaps\bin\Debug\Google.Maps.dll
+E:\NNLT2\code\ggMaps\ggMaps\bin\Debug\Newtonsoft.Json.dll
+E:\NNLT2\code\ggMaps\ggMaps\bin\Debug\Newtonsoft.Json.xml
+E:\NNLT2\code\ggMaps\ggMaps\obj\Debug\ggMaps.csprojResolveAssemblyReference.cache
+E:\NNLT2\code\ggMaps\ggMaps\obj\Debug\ggMaps.Form1.resources
+E:\NNLT2\code\ggMaps\ggMaps\obj\Debug\ggMaps.Properties.Resources.resources
+E:\NNLT2\code\ggMaps\ggMaps\obj\Debug\ggMaps.csproj.GenerateResource.Cache
+E:\NNLT2\code\ggMaps\ggMaps\obj\Debug\ggMaps.exe
+E:\NNLT2\code\ggMaps\ggMaps\obj\Debug\ggMaps.pdb

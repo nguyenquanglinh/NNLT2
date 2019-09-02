@@ -1,0 +1,6 @@
+E:\NNLT2\BaiTapBuoi1\TinhTongDaySo\bin\Debug\TinhTongDaySo.exe.config
+E:\NNLT2\BaiTapBuoi1\TinhTongDaySo\bin\Debug\TinhTongDaySo.exe
+E:\NNLT2\BaiTapBuoi1\TinhTongDaySo\bin\Debug\TinhTongDaySo.pdb
+E:\NNLT2\BaiTapBuoi1\TinhTongDaySo\obj\Debug\TinhTongDaySo.exe
+E:\NNLT2\BaiTapBuoi1\TinhTongDaySo\obj\Debug\TinhTongDaySo.pdb
+E:\NNLT2\BaiTapBuoi1\TinhTongDaySo\obj\Debug\TinhTongDaySo.csprojResolveAssemblyReference.cache

@@ -1,0 +1,6 @@
+E:\NNLT2\BaiTapBuoi1\Max3So\bin\Debug\Max3So.exe.config
+E:\NNLT2\BaiTapBuoi1\Max3So\bin\Debug\Max3So.exe
+E:\NNLT2\BaiTapBuoi1\Max3So\bin\Debug\Max3So.pdb
+E:\NNLT2\BaiTapBuoi1\Max3So\obj\Debug\Max3So.exe
+E:\NNLT2\BaiTapBuoi1\Max3So\obj\Debug\Max3So.pdb
+E:\NNLT2\BaiTapBuoi1\Max3So\obj\Debug\Max3So.csprojResolveAssemblyReference.cache

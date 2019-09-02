@@ -1,0 +1,6 @@
+E:\NNLT2\BaiTapBuoi1\BaiTapBuoi1\bin\Debug\BaiTapBuoi1.exe.config
+E:\NNLT2\BaiTapBuoi1\BaiTapBuoi1\bin\Debug\BaiTapBuoi1.exe
+E:\NNLT2\BaiTapBuoi1\BaiTapBuoi1\bin\Debug\BaiTapBuoi1.pdb
+E:\NNLT2\BaiTapBuoi1\BaiTapBuoi1\obj\Debug\BaiTapNhapSo.csprojResolveAssemblyReference.cache
+E:\NNLT2\BaiTapBuoi1\BaiTapBuoi1\obj\Debug\BaiTapBuoi1.exe
+E:\NNLT2\BaiTapBuoi1\BaiTapBuoi1\obj\Debug\BaiTapBuoi1.pdb

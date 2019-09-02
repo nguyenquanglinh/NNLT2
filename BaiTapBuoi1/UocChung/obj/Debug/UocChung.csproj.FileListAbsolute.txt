@@ -1,0 +1,6 @@
+E:\NNLT2\BaiTapBuoi1\UocChung\bin\Debug\UocChung.exe.config
+E:\NNLT2\BaiTapBuoi1\UocChung\bin\Debug\UocChung.exe
+E:\NNLT2\BaiTapBuoi1\UocChung\bin\Debug\UocChung.pdb
+E:\NNLT2\BaiTapBuoi1\UocChung\obj\Debug\UocChung.exe
+E:\NNLT2\BaiTapBuoi1\UocChung\obj\Debug\UocChung.pdb
+E:\NNLT2\BaiTapBuoi1\UocChung\obj\Debug\UocChung.csprojResolveAssemblyReference.cache

@@ -1,0 +1,5 @@
+E:\NNLT2\code\OOP\OOP_Shape\bin\Debug\OOP_Shape.exe.config
+E:\NNLT2\code\OOP\OOP_Shape\bin\Debug\OOP_Shape.exe
+E:\NNLT2\code\OOP\OOP_Shape\bin\Debug\OOP_Shape.pdb
+E:\NNLT2\code\OOP\OOP_Shape\obj\Debug\OOP_Shape.exe
+E:\NNLT2\code\OOP\OOP_Shape\obj\Debug\OOP_Shape.pdb

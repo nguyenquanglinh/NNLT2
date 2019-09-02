@@ -1,0 +1,10 @@
+E:\NNLT2\code\MultithreadSNT\SNT\bin\Debug\SNT.exe.config
+E:\NNLT2\code\MultithreadSNT\SNT\bin\Debug\SNT.exe
+E:\NNLT2\code\MultithreadSNT\SNT\bin\Debug\SNT.pdb
+E:\NNLT2\code\MultithreadSNT\SNT\obj\Debug\SNT.csprojResolveAssemblyReference.cache
+E:\NNLT2\code\MultithreadSNT\SNT\obj\Debug\SNT.Form1.resources
+E:\NNLT2\code\MultithreadSNT\SNT\obj\Debug\SNT.Properties.Resources.resources
+E:\NNLT2\code\MultithreadSNT\SNT\obj\Debug\SNT.csproj.GenerateResource.Cache
+E:\NNLT2\code\MultithreadSNT\SNT\obj\Debug\SNT.exe
+E:\NNLT2\code\MultithreadSNT\SNT\obj\Debug\SNT.pdb
+E:\NNLT2\code\MultithreadSNT\SNT\obj\Debug\SNT.ThreadProcess.resources

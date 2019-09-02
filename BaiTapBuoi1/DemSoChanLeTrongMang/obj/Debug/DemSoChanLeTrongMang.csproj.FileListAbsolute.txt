@@ -1,0 +1,5 @@
+E:\NNLT2\BaiTapBuoi1\DemSoChanLeTrongMang\bin\Debug\DemSoChanLeTrongMang.exe.config
+E:\NNLT2\BaiTapBuoi1\DemSoChanLeTrongMang\bin\Debug\DemSoChanLeTrongMang.exe
+E:\NNLT2\BaiTapBuoi1\DemSoChanLeTrongMang\bin\Debug\DemSoChanLeTrongMang.pdb
+E:\NNLT2\BaiTapBuoi1\DemSoChanLeTrongMang\obj\Debug\DemSoChanLeTrongMang.exe
+E:\NNLT2\BaiTapBuoi1\DemSoChanLeTrongMang\obj\Debug\DemSoChanLeTrongMang.pdb

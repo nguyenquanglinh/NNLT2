@@ -1,0 +1,6 @@
+E:\NNLT2\BaiTapBuoi1\Mang\bin\Debug\Mang.exe.config
+E:\NNLT2\BaiTapBuoi1\Mang\bin\Debug\Mang.exe
+E:\NNLT2\BaiTapBuoi1\Mang\bin\Debug\Mang.pdb
+E:\NNLT2\BaiTapBuoi1\Mang\obj\Debug\Mang.exe
+E:\NNLT2\BaiTapBuoi1\Mang\obj\Debug\Mang.pdb
+E:\NNLT2\BaiTapBuoi1\Mang\obj\Debug\Mang.csprojResolveAssemblyReference.cache
