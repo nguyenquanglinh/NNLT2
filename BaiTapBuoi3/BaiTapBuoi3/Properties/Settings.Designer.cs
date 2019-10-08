@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ggMaps.Properties
+namespace BaiTapBuoi3.Properties
 {
 
 

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LoginFacebook.Properties
+namespace FormDangKy.Properties
 {
 
 
