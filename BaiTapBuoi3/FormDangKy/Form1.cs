@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FormDangKy
@@ -23,8 +16,9 @@ namespace FormDangKy
         {
             if (!string.IsNullOrWhiteSpace(txtAddress.Text) || !string.IsNullOrWhiteSpace(txtClass.Text) || !string.IsNullOrWhiteSpace(txtname.Text))
             {
-                File.AppendAllText("login.txt", txtname.Text + ";" + txtClass.Text + txtAddress.Text + "\n");
+                File.AppendAllText("login.txt", txtname.Text + ";" + txtClass.Text +";"+ txtAddress.Text + Environment.NewLine);
                 MessageBox.Show("đã lưu thông tin xong");
+                txtname.Text = txtAddress.Text = txtClass.Text = "";
             }
             else MessageBox.Show("không được để trống trường nào");
         }
