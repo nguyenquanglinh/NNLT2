@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
@@ -10,7 +11,10 @@ namespace MultiThread
         private Panel panelBoardControls;
         private Panel panelBoardThread;
 
-        public BangChiaLuong() { }
+
+        public BangChiaLuong()
+        {
+        }
 
         public BangChiaLuong(Panel panelBoardControls, Panel panelBoardThread) : this()
         {
@@ -18,21 +22,30 @@ namespace MultiThread
             this.panelBoardThread = panelBoardThread;
         }
 
+        public BangChiaLuong(Panel panelBoardControls, Panel panelBoardThread, long a, long b, int luong) : this(panelBoardControls, panelBoardThread)
+        {
+            this.A = a;
+            this.B = b;
+            this.Luong = luong;
+        }
+
         public List<Button> DsButton { get; set; }
         public List<Thread> DsThread { get; set; }
+        public long A { get; private set; }
+        public long B { get; private set; }
+        public int Luong { get; private set; }
 
-        void TaobangLuong(int soLuong)
+        void TaoButton(int soLuong)
         {
-            int ox = panelBoardControls.Location.X;
+            DsButton = new List<Button>();
             panelBoardThread.Controls.Clear();
-            this.DsButton = new List<Button>();
-            DsThread = new List<Thread>();
+            int ox = panelBoardControls.Location.X;
             int x = panelBoardThread.Width;
             int oy = panelBoardThread.Location.Y;
             int y = panelBoardThread.Height;
             int w = (x - ox) / 2;
             int h = (y - oy) / (soLuong / 2);
-            int dem = 1;
+            int dem = 0;
             for (int i = 0; i < soLuong / 2; i++)
             {
                 for (int j = 0; j < 2; j++)
@@ -42,62 +55,95 @@ namespace MultiThread
                         Width = w,
                         Height = h,
                         Location = new Point(ox, oy),
-                        Text = "luồng " + dem.ToString(),
+                        Name = DsThread[dem].Name + "\n",
+                        BackColor = Color.Red,
                     };
-
                     DsButton.Add(button);
+                    panelBoardThread.Controls.Add(button);
                     ox += w;
                     dem++;
                 }
                 oy += h;
                 ox = panelBoardControls.Location.X;
             }
-            Update();
         }
-        void Update()
+        void Update(string s)
         {
-            foreach (var button in DsButton)
+            //panelBoardThread.Controls.Clear();
+            foreach (var item in DsButton)
             {
-                panelBoardThread.Controls.Add(button);
+                item.Text = item.Name + s;
             }
         }
-        public void Start(long a, long b, int soLuong)
+        void TaoLuong(long a, long kt, int soLuong)
         {
-            TaobangLuong(soLuong);
-            int dem = 1;
-            long i = a;
-            long bacNhay = (b - a) / soLuong;
-            while (true)
+            DsThread = new List<Thread>();
+            long batDau = a;
+            long bacNhay = (kt - a) / soLuong;
+            for (int i = 1; i < soLuong; i++)
             {
-                if (b - i > bacNhay)
-                {
-                    var x = new Thread((new SoNguyenTo(i, i + bacNhay).LaySNT));
-                    x.Name = dem.ToString();
-                    x.Start();
-                    DsThread.Add(x);
-                }
-                else
-                {
-                    var x = new Thread((new SoNguyenTo(i, b).LaySNT));
-                    x.Name = i.ToString();
-                    x.Start();
-                    DsThread.Add(x);
-                    break;
-                }
-                i = i + bacNhay;
-                dem++;
+                var luong = new Thread((new SoNguyenTo(batDau, batDau + bacNhay).LaySNT));
+                luong.Name = "luong " + i.ToString() + " : [" + batDau + "->" + (batDau + bacNhay) + "]";
+                DsThread.Add(luong);
+                batDau += bacNhay + 1;
             }
+            var luongCuoi = new Thread((new SoNguyenTo(batDau, kt).LaySNT));
+            luongCuoi.Name = "luong: " + soLuong.ToString() + " [" + batDau + "," + kt + "]";
+            DsThread.Add(luongCuoi);
         }
 
-        public void KiemTraLuongChay(int second)
+        void StartLuong()
         {
+            foreach (var item in DsThread)
+            {
+                item.Start();
+                Thread.Sleep(500);
+            }
+        }
+        public void Start(long a, long kt, int soLuong)
+        {
+            TaoLuong(a, kt, soLuong);
+            TaoButton(soLuong);
+            Update("chua xong");
+            StartLuong();
+        }
+
+        Color[] ten = {  Color.White, Color.Yellow, Color.Red };
+        int chiSoMau = 0;
+        public bool KiemTraLuongChay(int second)
+        {
+            chiSoMau++;
+            if (chiSoMau > 2)
+                chiSoMau = 0;
+            
+            int dem = 0;
             for (int i = 0; i < DsThread.Count; i++)
             {
                 if (DsThread[i].Join(second))
-                    DsButton[i].Text ="da xong";
-                else DsButton[i].Text = "chua xong";
+                {
+                    DsButton[i].BackColor = Color.Blue;
+                    DsButton[i].Text = DsButton[i].Name + "da chay xong";
+                    dem++;
+                    if (dem >= DsThread.Count)
+                    {
+                        return true;
+                    }
+                }
+                else
+                {
+                    DsButton[i].Text = DsButton[i].Name + "dang chay chua xong";
+                    DsButton[i].BackColor = ten[chiSoMau];
+                }
             }
-            Update();
+            Thread.Sleep(50);
+            return false;
+            //Update("");
+        }
+
+
+        public void BatDau()
+        {
+            Start(A, B, Luong);
         }
     }
 }

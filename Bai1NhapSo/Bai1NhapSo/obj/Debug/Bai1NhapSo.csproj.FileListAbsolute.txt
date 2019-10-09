@@ -1,6 +1,0 @@
-E:\NNLT2\Bai1NhapSo\Bai1NhapSo\bin\Debug\Bai1NhapSo.exe.config
-E:\NNLT2\Bai1NhapSo\Bai1NhapSo\bin\Debug\Bai1NhapSo.exe
-E:\NNLT2\Bai1NhapSo\Bai1NhapSo\bin\Debug\Bai1NhapSo.pdb
-E:\NNLT2\Bai1NhapSo\Bai1NhapSo\obj\Debug\Bai1NhapSo.csprojResolveAssemblyReference.cache
-E:\NNLT2\Bai1NhapSo\Bai1NhapSo\obj\Debug\Bai1NhapSo.exe
-E:\NNLT2\Bai1NhapSo\Bai1NhapSo\obj\Debug\Bai1NhapSo.pdb

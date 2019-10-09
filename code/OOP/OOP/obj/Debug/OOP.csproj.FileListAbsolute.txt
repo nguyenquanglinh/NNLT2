@@ -1,6 +1,0 @@
-E:\NNLT2\code\OOP\OOP\bin\Debug\OOP.exe.config
-E:\NNLT2\code\OOP\OOP\bin\Debug\OOP.exe
-E:\NNLT2\code\OOP\OOP\bin\Debug\OOP.pdb
-E:\NNLT2\code\OOP\OOP\obj\Debug\OOP.csprojResolveAssemblyReference.cache
-E:\NNLT2\code\OOP\OOP\obj\Debug\OOP.exe
-E:\NNLT2\code\OOP\OOP\obj\Debug\OOP.pdb

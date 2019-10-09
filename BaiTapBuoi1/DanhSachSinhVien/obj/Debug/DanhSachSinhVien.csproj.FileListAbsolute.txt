@@ -3,3 +3,6 @@ E:\NNLT2\BaiTapBuoi1\DanhSachSinhVien\bin\Debug\DanhSachSinhVien.exe
 E:\NNLT2\BaiTapBuoi1\DanhSachSinhVien\bin\Debug\DanhSachSinhVien.pdb
 E:\NNLT2\BaiTapBuoi1\DanhSachSinhVien\obj\Debug\DanhSachSinhVien.exe
 E:\NNLT2\BaiTapBuoi1\DanhSachSinhVien\obj\Debug\DanhSachSinhVien.pdb
+E:\NNLT2\code\BaiTapBuoi1\DanhSachSinhVien\bin\Debug\DanhSachSinhVien.exe.config
+E:\NNLT2\code\BaiTapBuoi1\DanhSachSinhVien\obj\Debug\DanhSachSinhVien.exe
+E:\NNLT2\code\BaiTapBuoi1\DanhSachSinhVien\obj\Debug\DanhSachSinhVien.pdb

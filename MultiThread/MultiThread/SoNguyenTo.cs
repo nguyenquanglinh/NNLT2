@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace MultiThread
@@ -17,7 +19,9 @@ namespace MultiThread
         public long BatDau { get; private set; }
         public long KetThuc { get; private set; }
 
-        public static List<long> DsSNT = new List<long>();
+        public static Stack<long> DsSNT = new Stack<long>();
+        public static long dem = 0;
+        public static string s = "";
 
         public override string ToString()
         {
@@ -28,17 +32,31 @@ namespace MultiThread
             }
             return s;
         }
+      
         public void LaySNT()
         {
             for (long i = BatDau; i < KetThuc; i++)
             {
                 if (KiemTraSNT(i))
                 {
-                    DsSNT.Add(i);
+                    s += i + "\t";
+                    dem++;
                 }
+                //try
+                //{
+                //    DsSNT.Add(i);
+                //}
+                //catch
+                //{
+                //    DsSNT.
+                //}
+                //if (KiemTraSNT(i))
+                //{
+                //    new Thread(new GhiFile(i.ToString()).WriteToFile).Start();
+                //}
             }
         }
-        public bool KiemTraSNT(long a)
+        public static bool KiemTraSNT(long a)
         {
             if (a % 2 == 0)
                 return false;
@@ -53,6 +71,25 @@ namespace MultiThread
                     return true;
                 return true;
             }
+        }
+    }
+
+    public class GhiFile
+    {
+        private string s;
+
+        public GhiFile(string s)
+        {
+            this.s = s;
+        }
+        public  void WriteToFile()
+        {
+            var fs = new FileStream("prime.txt", FileMode.Append, FileAccess.Write);
+            var sw = new StreamWriter(fs);
+            sw.WriteLine(s);
+            sw.Flush();
+            sw.Close();
+            fs.Close();
         }
     }
 }

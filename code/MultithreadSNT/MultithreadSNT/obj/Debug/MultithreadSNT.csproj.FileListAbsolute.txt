@@ -1,6 +1,0 @@
-E:\NNLT2\code\MultithreadSNT\MultithreadSNT\bin\Debug\MultithreadSNT.exe.config
-E:\NNLT2\code\MultithreadSNT\MultithreadSNT\bin\Debug\MultithreadSNT.exe
-E:\NNLT2\code\MultithreadSNT\MultithreadSNT\bin\Debug\MultithreadSNT.pdb
-E:\NNLT2\code\MultithreadSNT\MultithreadSNT\obj\Debug\MultithreadSNT.csprojResolveAssemblyReference.cache
-E:\NNLT2\code\MultithreadSNT\MultithreadSNT\obj\Debug\MultithreadSNT.exe
-E:\NNLT2\code\MultithreadSNT\MultithreadSNT\obj\Debug\MultithreadSNT.pdb
