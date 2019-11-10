@@ -10,29 +10,15 @@ namespace MultiThread
 {
     public class SoNguyenTo
     {
+        #region hàm khởi tạo
         public SoNguyenTo(long bDau, long kThuc)
         {
             this.BatDau = bDau;
             this.KetThuc = kThuc;
         }
+        #endregion
 
-        public long BatDau { get; private set; }
-        public long KetThuc { get; private set; }
-
-        public static Stack<long> DsSNT = new Stack<long>();
-        public static long dem = 0;
-        public static string s = "";
-
-        public override string ToString()
-        {
-            string s = DsSNT.Count.ToString() + "\n";
-            foreach (var item in DsSNT)
-            {
-                s += item.ToString() + "\t";
-            }
-            return s;
-        }
-      
+        #region hàm thực thi
         public void LaySNT()
         {
             for (long i = BatDau; i < KetThuc; i++)
@@ -42,18 +28,6 @@ namespace MultiThread
                     s += i + "\t";
                     dem++;
                 }
-                //try
-                //{
-                //    DsSNT.Add(i);
-                //}
-                //catch
-                //{
-                //    DsSNT.
-                //}
-                //if (KiemTraSNT(i))
-                //{
-                //    new Thread(new GhiFile(i.ToString()).WriteToFile).Start();
-                //}
             }
         }
         public static bool KiemTraSNT(long a)
@@ -72,24 +46,14 @@ namespace MultiThread
                 return true;
             }
         }
-    }
+        #endregion
 
-    public class GhiFile
-    {
-        private string s;
+        #region biến
+        public long BatDau { get; private set; }
+        public long KetThuc { get; private set; }
+        public static string s = "";
+        public static long dem = 0;
+        #endregion
 
-        public GhiFile(string s)
-        {
-            this.s = s;
-        }
-        public  void WriteToFile()
-        {
-            var fs = new FileStream("prime.txt", FileMode.Append, FileAccess.Write);
-            var sw = new StreamWriter(fs);
-            sw.WriteLine(s);
-            sw.Flush();
-            sw.Close();
-            fs.Close();
-        }
     }
 }

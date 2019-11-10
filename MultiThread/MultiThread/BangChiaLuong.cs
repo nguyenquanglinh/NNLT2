@@ -8,41 +8,39 @@ namespace MultiThread
 {
     public class BangChiaLuong
     {
-        private Panel panelBoardControls;
-        private Panel panelBoardThread;
-
-
-        public BangChiaLuong()
-        {
-        }
-
-        public BangChiaLuong(Panel panelBoardControls, Panel panelBoardThread) : this()
-        {
-            this.panelBoardControls = panelBoardControls;
-            this.panelBoardThread = panelBoardThread;
-        }
-
-        public BangChiaLuong(Panel panelBoardControls, Panel panelBoardThread, long a, long b, int luong) : this(panelBoardControls, panelBoardThread)
-        {
-            this.A = a;
-            this.B = b;
-            this.Luong = luong;
-        }
-
+        #region biến
         public List<Button> DsButton { get; set; }
         public List<Thread> DsThread { get; set; }
         public long A { get; private set; }
         public long B { get; private set; }
         public int Luong { get; private set; }
+        public Panel PanelBoardThread { get; private set; }
+        #endregion
 
-        void TaoButton(int soLuong)
+        #region Hàm khởi tạo
+        public BangChiaLuong()
+        {
+
+        }
+
+        public BangChiaLuong(Panel panelBoardThread, long a, long b, int luong) : this()
+        {
+            this.A = a;
+            this.B = b;
+            this.Luong = luong;
+            this.PanelBoardThread = panelBoardThread;
+        }
+        #endregion
+
+        #region hàm thực thi bên trong
+        private void TaoButton(int soLuong)
         {
             DsButton = new List<Button>();
-            panelBoardThread.Controls.Clear();
-            int ox = panelBoardControls.Location.X;
-            int x = panelBoardThread.Width;
-            int oy = panelBoardThread.Location.Y;
-            int y = panelBoardThread.Height;
+            PanelBoardThread.Controls.Clear();
+            int ox = 0;
+            int x = PanelBoardThread.Width;
+            int oy = 0;
+            int y = PanelBoardThread.Height;
             int w = (x - ox) / 2;
             int h = (y - oy) / (soLuong / 2);
             int dem = 0;
@@ -59,27 +57,26 @@ namespace MultiThread
                         BackColor = Color.Red,
                     };
                     DsButton.Add(button);
-                    panelBoardThread.Controls.Add(button);
+                    PanelBoardThread.Controls.Add(button);
                     ox += w;
                     dem++;
                 }
                 oy += h;
-                ox = panelBoardControls.Location.X;
+                ox = 0;
             }
         }
-        void Update(string s)
+        private void Update(string s)
         {
-            //panelBoardThread.Controls.Clear();
             foreach (var item in DsButton)
             {
                 item.Text = item.Name + s;
             }
         }
-        void TaoLuong(long a, long kt, int soLuong)
+        private void TaoLuong(int soLuong)
         {
             DsThread = new List<Thread>();
-            long batDau = a;
-            long bacNhay = (kt - a) / soLuong;
+            long batDau = A;
+            long bacNhay = (B - A) / soLuong;
             for (int i = 1; i < soLuong; i++)
             {
                 var luong = new Thread((new SoNguyenTo(batDau, batDau + bacNhay).LaySNT));
@@ -87,63 +84,69 @@ namespace MultiThread
                 DsThread.Add(luong);
                 batDau += bacNhay + 1;
             }
-            var luongCuoi = new Thread((new SoNguyenTo(batDau, kt).LaySNT));
-            luongCuoi.Name = "luong: " + soLuong.ToString() + " [" + batDau + "," + kt + "]";
+            var luongCuoi = new Thread((new SoNguyenTo(batDau, B).LaySNT));
+            luongCuoi.Name = "luong: " + soLuong.ToString() + " [" + batDau + "," + B + "]";
             DsThread.Add(luongCuoi);
         }
-
-        void StartLuong()
+        private void StartLuong()
         {
             foreach (var item in DsThread)
             {
                 item.Start();
-                Thread.Sleep(500);
+                Thread.Sleep(1000);
             }
         }
+
+        private bool KiemTraLuong(int second)
+        {
+            foreach (var item in DsThread)
+                if (!item.Join(second))
+                    return false;
+            return true;
+        }
+        private void HoanThanh()
+        {
+            foreach (var item in DsButton)
+            {
+                item.BackColor = Color.Blue;
+            }
+        }
+        #endregion
+
+        #region hàm thực thi cho phép bên ngoài 
         public void Start(long a, long kt, int soLuong)
         {
-            TaoLuong(a, kt, soLuong);
+            TaoLuong(soLuong);
             TaoButton(soLuong);
             Update("chua xong");
             StartLuong();
         }
 
-        Color[] ten = {  Color.White, Color.Yellow, Color.Red };
-        int chiSoMau = 0;
         public bool KiemTraLuongChay(int second)
         {
-            chiSoMau++;
-            if (chiSoMau > 2)
-                chiSoMau = 0;
-            
-            int dem = 0;
-            for (int i = 0; i < DsThread.Count; i++)
+            if (KiemTraLuong(second)) { HoanThanh(); return true; }
+            else
             {
-                if (DsThread[i].Join(second))
+                for (int i = 0; i < DsThread.Count; i++)
                 {
-                    DsButton[i].BackColor = Color.Blue;
-                    DsButton[i].Text = DsButton[i].Name + "da chay xong";
-                    dem++;
-                    if (dem >= DsThread.Count)
+                    if (DsThread[i].Join(second))
                     {
-                        return true;
+                        DsButton[i].BackColor = Color.Blue;
+                        DsButton[i].Text = DsButton[i].Name + "đã chạy xong";
+                    }
+                    else
+                    {
+                        DsButton[i].Text = DsButton[i].Name + "chưa chạy xong";
+                        DsButton[i].BackColor = DsButton[i].BackColor == Color.Yellow ? Color.Red : Color.Yellow;
                     }
                 }
-                else
-                {
-                    DsButton[i].Text = DsButton[i].Name + "dang chay chua xong";
-                    DsButton[i].BackColor = ten[chiSoMau];
-                }
             }
-            Thread.Sleep(50);
             return false;
-            //Update("");
         }
-
-
         public void BatDau()
         {
             Start(A, B, Luong);
         }
+        #endregion
     }
 }
