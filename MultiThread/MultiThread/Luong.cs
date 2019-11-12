@@ -30,6 +30,7 @@ namespace MultiThread
         }
         public Luong(long a, long b, int luong) : this()
         {
+
             BangChiaLuong = new BangChiaLuong(panelBoardThread, a, b, luong);
             this.A = a;
             this.B = b;
