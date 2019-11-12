@@ -22,7 +22,6 @@ namespace MultiThread
         {
 
         }
-
         public BangChiaLuong(Panel panelBoardThread, long a, long b, int luong) : this()
         {
             this.A = a;
@@ -55,7 +54,8 @@ namespace MultiThread
                         Location = new Point(ox, oy),
                         Name = DsThread[dem].Name + "\n",
                         BackColor = Color.Red,
-                    };
+                        Text = DsThread[dem].Name+"\n"+"đang chạy chưa xong",
+                };
                     DsButton.Add(button);
                     PanelBoardThread.Controls.Add(button);
                     ox += w;
@@ -63,13 +63,6 @@ namespace MultiThread
                 }
                 oy += h;
                 ox = 0;
-            }
-        }
-        private void Update(string s)
-        {
-            foreach (var item in DsButton)
-            {
-                item.Text = item.Name + s;
             }
         }
         private void TaoLuong(int soLuong)
@@ -82,10 +75,13 @@ namespace MultiThread
                 var luong = new Thread((new SoNguyenTo(batDau, batDau + bacNhay).LaySNT));
                 luong.Name = "luong " + i.ToString() + " : [" + batDau + "->" + (batDau + bacNhay) + "]";
                 DsThread.Add(luong);
+                luong.Start();
+                Thread.Sleep(500);
                 batDau += bacNhay + 1;
             }
             var luongCuoi = new Thread((new SoNguyenTo(batDau, B).LaySNT));
             luongCuoi.Name = "luong: " + soLuong.ToString() + " [" + batDau + "," + B + "]";
+            luongCuoi.Start();
             DsThread.Add(luongCuoi);
         }
         private void StartLuong()
@@ -93,10 +89,8 @@ namespace MultiThread
             foreach (var item in DsThread)
             {
                 item.Start();
-                Thread.Sleep(1000);
             }
         }
-
         private bool KiemTraLuong(int second)
         {
             foreach (var item in DsThread)
@@ -104,12 +98,13 @@ namespace MultiThread
                     return false;
             return true;
         }
-        private void HoanThanh()
+        public bool KiemTraHoanThanh()
         {
-            foreach (var item in DsButton)
+            foreach (var item in DsThread)
             {
-                item.BackColor = Color.Blue;
+                if (!item.Join(500)) return false;
             }
+            return true;
         }
         #endregion
 
@@ -118,30 +113,23 @@ namespace MultiThread
         {
             TaoLuong(soLuong);
             TaoButton(soLuong);
-            Update("chua xong");
-            StartLuong();
         }
 
-        public bool KiemTraLuongChay(int second)
+        public void CapNhatLuongChay(int second)
         {
-            if (KiemTraLuong(second)) { HoanThanh(); return true; }
-            else
+            for (int i = 0; i < DsThread.Count; i++)
             {
-                for (int i = 0; i < DsThread.Count; i++)
+                if (DsThread[i].Join(second))
                 {
-                    if (DsThread[i].Join(second))
-                    {
-                        DsButton[i].BackColor = Color.Blue;
-                        DsButton[i].Text = DsButton[i].Name + "đã chạy xong";
-                    }
-                    else
-                    {
-                        DsButton[i].Text = DsButton[i].Name + "chưa chạy xong";
-                        DsButton[i].BackColor = DsButton[i].BackColor == Color.Yellow ? Color.Red : Color.Yellow;
-                    }
+                    DsButton[i].BackColor = Color.Blue;
+                    DsButton[i].Text = DsButton[i].Name + "đã chạy xong";
+                }
+                else
+                {
+                    DsButton[i].Text = DsButton[i].Name + "chưa chạy xong";
+                    DsButton[i].BackColor = DsButton[i].BackColor == Color.Yellow ? Color.Red : Color.Yellow;
                 }
             }
-            return false;
         }
         public void BatDau()
         {

@@ -49,19 +49,19 @@ namespace MultiThread
         }
         public void End()
         {
-            Thread.Sleep(3000);
+            Thread.Sleep(5000);
             if (MessageBox.Show("Có: " + SoNguyenTo.dem.ToString() + " số nguyên tố trong đoạn từ " + BatDau + " đến " + KetThuc + "\n Bạn có muốn lưu vào file không?", "Thông Báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 File.AppendAllText("prime.txt", "[ " + BatDau + " ; " + KetThuc + "] có: " + SoNguyenTo.dem + " SNT."+ Environment.NewLine + SoNguyenTo.s);
             else MessageBox.Show("Bạn đã không lưu kết quả ra file");
             SoNguyenTo.dem = 0;
             SoNguyenTo.s = "";
             this.Close();
-
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
             timer1.Stop();
-            if (BangChiaLuong.KiemTraLuongChay(500))
+            BangChiaLuong.CapNhatLuongChay(500);
+            if (BangChiaLuong.KiemTraHoanThanh())
                 End();
             else timer1.Start();
         }

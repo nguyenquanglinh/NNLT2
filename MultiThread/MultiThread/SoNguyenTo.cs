@@ -21,7 +21,7 @@ namespace MultiThread
         #region hàm thực thi
         public void LaySNT()
         {
-            for (long i = BatDau; i < KetThuc; i++)
+            for (long i = BatDau; i <= KetThuc; i++)
             {
                 if (KiemTraSNT(i))
                 {
@@ -32,19 +32,18 @@ namespace MultiThread
         }
         public static bool KiemTraSNT(long a)
         {
-            if (a % 2 == 0)
-                return false;
-            else
+            if (a <2)
             {
-                for (long i = 2; i <= Math.Sqrt(a); i++)
-                    if (a % i == 0)
-                        return false;
-                if (a < 2)
-                    return false;
-                else if (a == 2)
-                    return true;
-                return true;
+                return false;
             }
+            for (int i = 2; i <= Math.Sqrt(a); i++)
+            {
+                if (a% i == 0)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
         #endregion
 

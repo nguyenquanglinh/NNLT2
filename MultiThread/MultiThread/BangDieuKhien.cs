@@ -19,8 +19,8 @@ namespace MultiThread
         {
             InitializeComponent();
             txtA.Text = "0";
-            txtB.Text = "1000000";
-            comboBox1.Text = "2";
+            txtB.Text = "10";
+            comboBox1.Text = "10";
         }
         #endregion
 
@@ -50,5 +50,6 @@ namespace MultiThread
 
         }
         #endregion
+
     }
 }
